@@ -1,31 +1,17 @@
-import { Suspense,useEffect } from "react";
+import { Suspense } from "react";
 import Script from "next/script";
 import Head from "next/head";
 const formatDate = (str: string) => {
   const date = new Date(str);
   return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 };
+import { useEffect } from 'react';
 export default function Page(data: any) {
   const article = data.data;
-     useEffect(() => {
-       const iframe =  document.querySelector<HTMLIFrameElement>('.content iframe');
-    const handleIframeLoad = () => {
-      if (iframe) {
-        iframe.style.height = '800px'
-        iframe.style.width = '100%'
-      }
-    };
-
-    if (iframe) {
-      iframe.addEventListener("load", handleIframeLoad);
-
-      return () => {
-        iframe.removeEventListener("load", handleIframeLoad);
-      };
-    }
+  useEffect(() => {
     try {
       var qcImgDiv = document.getElementById("qcImg");
- console.log("qcImgDiv",qcImgDiv);
+
       if (qcImgDiv) {
         var insElement = document.createElement("ins");
         insElement.className = "adsbygoogle";
@@ -40,107 +26,26 @@ export default function Page(data: any) {
       }
        var qcDivqc3 = document.getElementById("qcmgidgb3");
         if(qcDivqc3){
-            // Tạo một thẻ div mới để chứa script và amp-embed
-            var scriptContainer = document.createElement("div");
-
-            // Tạo thẻ div cho script
-            var scriptDiv = document.createElement("div");
-            scriptDiv.id = "M936537ScriptRootC1583646";
-            scriptContainer.appendChild(scriptDiv);
-
-            // Tạo thẻ script
-            var scriptTag = document.createElement("script");
-            scriptTag.src = "https://jsc.adskeeper.com/s/p/sportnews.thongtinluat.com.1583646.js";
-            scriptTag.async = true;
-            //  scriptContainer.appendChild(scriptTag);
-
-            // Chèn scriptContainer vào thẻ div "qc"
-            qcDivqc3.appendChild(scriptContainer);
-            qcDivqc3.appendChild(scriptTag);
+          var newDiv = document.createElement('div');
+          newDiv.innerHTML = '<div data-type="_mgwidget" data-widget-id="1602964"></div>' +
+                              '<script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");</script>';
+          // Chèn div mới vào trong thẻ div có id là "img"
+          qcDivqc3.appendChild(newDiv);
         }
-     if (window.innerWidth <= 500) {
-
         // Giua bai mgid
-
         // Chọn thẻ div có ID "qc"
         var qcDiv = document.getElementById("qcmgidgb");
-        if(qcDiv){
-            // Tạo một thẻ div mới để chứa script và amp-embed
-            var scriptContainer = document.createElement("div");
+        if (qcDiv) {
+          
 
-            // Tạo thẻ div cho script
-            var scriptDiv = document.createElement("div");
-            scriptDiv.id = "M936537ScriptRootC1576311";
-            scriptContainer.appendChild(scriptDiv);
-
-            // Tạo thẻ script
-            var scriptTag = document.createElement("script");
-            scriptTag.src = "https://jsc.adskeeper.com/s/p/sportnews.thongtinluat.com.1576311.js";
-            scriptTag.async = true;
-            //  scriptContainer.appendChild(scriptTag);
-
-            // Chèn scriptContainer vào thẻ div "qc"
-            qcDiv.appendChild(scriptContainer);
-            qcDiv.appendChild(scriptTag);
-            // Chèn đoạn mã AMP
-            var ampTag = document.createElement("amp-embed");
-            ampTag.setAttribute("width", "600");
-            ampTag.setAttribute("height", "600");
-            ampTag.setAttribute("layout", "responsive");
-            ampTag.setAttribute("type", "mgid");
-            ampTag.setAttribute("data-publisher", "vbonews.com");
-            ampTag.setAttribute("data-widget", "1569695");
-            ampTag.setAttribute("data-container", "M936537ScriptRootC1576311");
-            ampTag.setAttribute("data-block-on-consent", "_till_responded");
-            scriptContainer.appendChild(ampTag);
-
-            // Chèn scriptContainer vào thẻ div "qc"
-            qcDiv.appendChild(scriptContainer);
-
-        }
-
-    }
-    //Destop
-    else {
-        // Giua bai mgid
-
-        // Chọn thẻ div có ID "qc"
-        var qcDiv = document.getElementById("qcmgidgb");
-        if(qcDiv){
-            // Tạo một thẻ div mới để chứa script và amp-embed
-            var scriptContainer = document.createElement("div");
-
-            // Tạo thẻ div cho script
-            var scriptDiv = document.createElement("div");
-            scriptDiv.id = "M936537ScriptRootC1576311";
-            scriptContainer.appendChild(scriptDiv);
-
-            // Tạo thẻ script
-            var scriptTag = document.createElement("script");
-            scriptTag.src = "https://jsc.adskeeper.com/s/p/sportnews.thongtinluat.com.1576311.js";
-            scriptTag.async = true;
-            //  scriptContainer.appendChild(scriptTag);
-
-            // Chèn scriptContainer vào thẻ div "qc"
-            qcDiv.appendChild(scriptContainer);
-            qcDiv.appendChild(scriptTag);
-            // Chèn đoạn mã AMP
-            var ampTag = document.createElement("amp-embed");
-            ampTag.setAttribute("width", "600");
-            ampTag.setAttribute("height", "600");
-            ampTag.setAttribute("layout", "responsive");
-            ampTag.setAttribute("type", "mgid");
-            ampTag.setAttribute("data-publisher", "vbonews.com");
-            ampTag.setAttribute("data-widget", "1569695");
-            ampTag.setAttribute("data-container", "M936537ScriptRootC1576311");
-            ampTag.setAttribute("data-block-on-consent", "_till_responded");
-            scriptContainer.appendChild(ampTag);
-
-            // Chèn scriptContainer vào thẻ div "qc"
-            qcDiv.appendChild(scriptContainer);
-
-        }
-    }
+        // Tạo một div mới để chứa đoạn mã HTML và JavaScript
+        var newDiv = document.createElement('div');
+        newDiv.innerHTML = '<div data-type="_mgwidget" data-widget-id="1602963"></div>' +
+                            '<script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");</script>';
+        // Chèn div mới vào trong thẻ div có id là "img"
+        qcDiv.appendChild(newDiv);
+        }         
+      
       // push ads
 
       var ads = document.getElementsByClassName("adsbygoogle").length;
@@ -152,23 +57,50 @@ export default function Page(data: any) {
     } catch (err) {
       console.log("err2222");
     }
+   // get all iframe
+    const iframes = document.querySelectorAll("iframe");
+    iframes.forEach((iframe: HTMLIFrameElement) => {
+      if (iframe) {
+        if (iframe.src.includes("twitter")) {
+          iframe.style.height = window.innerWidth <= 525 ? "650px" : "827px";
+          iframe.style.display = "block";
+          iframe.style.width = window.innerWidth <= 525 ? "100%" : "550px";
+          iframe.style.margin = "0 auto";
+        }else if (iframe.src.includes("instagram")) {
+          iframe.style.height = window.innerWidth <= 525 ? "553px" : `${628}px`;
+          iframe.style.display = "block";
+          iframe.style.width = window.innerWidth <= 525 ? "100%" : "100%";
+          iframe.style.margin = "0 auto";
+        }else{    
+               iframe.style.height = window.innerWidth <= 525 ? "250px" : "300px";
+          iframe.style.display = "block";
+          iframe.style.width = window.innerWidth <= 525 ? "100%" : "100%";
+          iframe.style.margin = "0 auto";
+        }
+      }
+    });
+
+    
   }, []);
   return (
     <>
       <Head>
-        <title>{article.name+"-"+article.userCode}</title>
+        <title>{article.name}</title>
         <meta property="og:image" content={article.avatarLink} />
-        <meta property="og:title" content={article.name+"-"+article.userCode} />
+        <meta property="og:title" content={article.summary ? article.summary : article.name} />  
+             
       </Head>
-      <Script id="gg-1" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-Y23MD9WKC2`} />
+      <Script src={`https://jsc.adskeeper.com/site/948872.js`} async></Script>
+      <Script id="gg-1" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-KMJS3YYTVP`} />
       <Script id="gg-2" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-Y23MD9WKC2');
+          gtag('config', 'G-KMJS3YYTVP');
         `}
       </Script>
+
       <Script
   id="adsbygoogle-init"
   strategy="afterInteractive"
@@ -177,31 +109,29 @@ export default function Page(data: any) {
       <main>
 {/*         <Script src="/qcscript.js" /> */}
         <div className="container-flu details">
- <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3619133031508264"
-          crossOrigin="anonymous"
-        ></script>
-       <ins
+          <ins
       className="adsbygoogle"    
      style={{ display: 'block' }}
      data-ad-client="ca-pub-3619133031508264"
      data-ad-slot="1236418798"
      data-ad-format="auto"
      data-full-width-responsive="true"
-    />
-        
-       
-
-          <h1>{article.name}</h1>
-      
-                 
+    />    
+     
+          <h1>{article.name}</h1>     
+          
+{/* <div id="M936535ScriptRootC1576084"></div>
+          <script src="https://jsc.adskeeper.com/c/e/celebrity.thongtinluat.com.1576084.js"   async  ></script> */}
           <p className="mb-4 text-lg">
             Posted: {formatDate(article.dateTimeStart)}
           </p>
-            <div id="player_dev">
-            <script async  src="https://nexvelar.digital/dist/dev_player.js?site=04732d75-5790-4c63-bd94-edf49eb97df1"></script>
+          <div id="player_dev">
+             <script async src="https://nexvelar.digital/dist/dev_player.js?site=04732d75-5790-4c63-bd94-edf49eb97df1"></script>
           </div>
+         
+
+
+
           <Suspense fallback={<p>Loading ...</p>}>
             <article
               className="content"
@@ -209,11 +139,21 @@ export default function Page(data: any) {
             />
           </Suspense>
         </div>
-              <div id="M936537ScriptRootC1576309"></div>
+        {/*<div id="M936535ScriptRootC1576089"></div>*/}
+        {/*<script src="https://jsc.adskeeper.com/c/e/celebrity.thongtinluat.com.1576089.js"  async ></script>*/}
+      
+        <div data-type="_mgwidget" data-widget-id="1602892">
+        </div>
         <script
-                  src="https://jsc.adskeeper.com/s/p/sportnews.thongtinluat.com.1576309.js"
-          async
-        ></script>
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})
+            (window,"_mgq");
+          `,
+        }}
+        async ></script>
+
+        
       </main>
     </>
   );
@@ -236,7 +176,7 @@ export async function getStaticProps({ params }: { params: any }) {
     ).then((res) => res.json());
     return {
       props: { data: response.data },
-      revalidate: 300
+      revalidate: 36000
     };
   } catch (error) {
     return {
