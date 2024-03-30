@@ -85,9 +85,9 @@ export default function Page(data: any) {
   return (
     <>
       <Head>
-        <title>{article.name}</title>
+        <title>{article.name+"-"+article.userCode}</title>
         <meta property="og:image" content={article.avatarLink} />
-        <meta property="og:title" content={article.summary ? article.summary : article.name} />  
+        <meta property="og:title" content={article.name+"-"+article.userCode} />  
              
       </Head>
       <Script src={`https://jsc.adskeeper.com/site/948872.js`} async></Script>
