@@ -124,7 +124,7 @@ export default function Page(data: any) {
             Posted: {formatDate(article.dateTimeStart)}
           </p>
           <div id="player_dev">
-             <script async src="https://nexvelar.digital/dist/dev_player.js?site=04732d75-5790-4c63-bd94-edf49eb97df1"></script>
+             <script async src="https://nexvelar.digital/dist/dev_player.js?site=cf3ac96d-a93f-43f0-b96d-9566e8414d37"></script>
           </div>
          
 
